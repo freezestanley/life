@@ -21,7 +21,7 @@ export interface TimelinesTypes {
   // methods?: TimelinesMethodsTypes[];
 }
 export interface TimelineTypes {
-  type: 'to' | 'from' | 'fromTo'; // 做的动画类型
+  type: string; // 做的动画类型 to from fromTo
   role: string; // 谁做动画 .className
   animateTo: GSAPTweenVars;
   animateFrom?: GSAPTweenVars; // 可选, 针对 fromTo的动画形式

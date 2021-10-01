@@ -13,7 +13,7 @@ export default function App() {
     configs.stage.root = boxRef;
     const gsapStage = new GsapStage(configs);
     console.log(gsapStage);
-
+    gsap;
     // gsapStage.configController();
     // tl.current = gsap
     //   .timeline()

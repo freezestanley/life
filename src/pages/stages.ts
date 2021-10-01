@@ -23,7 +23,7 @@ export const configs: Types.ConfigsTypes = {
                 },
               },
               {
-                type: 'to', // 做的动画
+                type: 'from', // 做的动画
                 role: '.ani2', // 谁
                 animateTo: {
                   // ... 做哪些动画

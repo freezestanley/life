@@ -34,7 +34,10 @@ export default class GsapStage {
   gsapTimelineController = (timeline: Types.TimelineTypes[]) => {
     let gsapTimeline = gsap.timeline();
     timeline.forEach(tl => {
-      gsapTimeline = gsapTimeline.to(this.selector(tl.role), tl.animateTo);
+      gsapTimeline = gsapTimeline[tl.type](
+        this.selector(tl.role),
+        tl.animateTo,
+      );
     });
   };
 }
