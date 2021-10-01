@@ -16,7 +16,7 @@ export const configs: Types.ConfigsTypes = {
             role: '.ani1', // 谁
             animateTo: {
               // ... 做哪些动画
-              rotate: 360,
+              rotate: '+=3600',
               duration: 5,
             },
             // animateFrom: {
@@ -31,6 +31,7 @@ export const configs: Types.ConfigsTypes = {
             animateTo: {
               // ... 做哪些动画
               x: 100,
+              y: 200,
               duration: 5,
             },
             methods: [
