@@ -16,6 +16,10 @@ export default class GsapStage {
     // const q = gsap.utils.selector(params.stage.root?.current);
     this.scenesController(stage.scenes);
   };
+  /**
+   * 场景控制
+   * @param scenes
+   */
   scenesController = (scenes: Types.ScenesTypes[]) => {
     if (!Array.isArray(scenes)) return;
     scenes.forEach(scene => {
@@ -26,11 +30,19 @@ export default class GsapStage {
       animateMap[`${lib}${type}`] && animateMap[`${lib}${type}`]();
     });
   };
+  /**
+   * 多时间线控制
+   * @param timelines
+   */
   gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
     timelines.forEach(tl => {
       this.gsapTimelineController(tl.timeline);
     });
   };
+  /**
+   * 单时间线控制
+   * @param timeline
+   */
   gsapTimelineController = (timeline: Types.TimelineTypes[]) => {
     let gsapTimeline = gsap.timeline();
     timeline.forEach(tl => {
@@ -41,16 +53,3 @@ export default class GsapStage {
     });
   };
 }
-/**
-tl.current = gsap
-  .timeline()
-  .to(q('.ani1'), {
-    rotate: 360,
-    duration: 5,
-  })
-  .to(q('.ani2'), {
-    x: 100,
-    duration: 5,
-  })
-  .delay(2);
- */
