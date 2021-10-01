@@ -4,7 +4,7 @@
 
 - [x] [gasp](https://link.juejin.cn/?target=https%3A%2F%2Fgreensock.com%2Fdocs%2F)
 - [ ] 主题色
-- [ ] 
+- [ ] 配置界面
 
 
 
@@ -13,14 +13,6 @@
 ## GSAP
 
 [gsap for react](https://greensock.com/react#setup)
-
-
-
-```
-gsap.to(boxRef.current, { rotation: '+=360' });
-```
-
-
 
 ### api
 
@@ -95,4 +87,17 @@ useEffect(() => {
   <span className="ani2">Hello2</span>
 </div>
 ```
+
+
+
+## 进度
+
+### 渲染端
+
+- [ ] 动画渲染核心
+- [ ] 动态加载组件
+
+
+
+### 配置端
 

@@ -50,7 +50,7 @@ export default function App() {
   };
   return (
     <div className="app">
-      <div className="box" ref={boxRef}>
+      <div className="stage" ref={boxRef}>
         <span className="ani1">Hello1</span>
         <span className="ani2">Hello2</span>
         <span className="ani3">Hello3</span>

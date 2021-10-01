@@ -10,7 +10,7 @@ export const configs: Types.ConfigsTypes = {
         lib: 'gsap', // 所使用的动画库, (保留字段)
         type: 'timelines', // 以时间线形式按顺序执行
         timelines: [
-          // 时间线
+          // 时间线sss
           {
             timeline: [
               {
@@ -19,6 +19,7 @@ export const configs: Types.ConfigsTypes = {
                 animateTo: {
                   // ... 做哪些动画
                   rotate: '+=3600',
+                  x: 300,
                   duration: 5,
                 },
               },
@@ -29,7 +30,7 @@ export const configs: Types.ConfigsTypes = {
                   // ... 做哪些动画
                   x: 100,
                   y: 200,
-                  duration: 5,
+                  duration: 2,
                 },
                 methods: [
                   {
@@ -38,6 +39,15 @@ export const configs: Types.ConfigsTypes = {
                     params: 2, // any 函数参数
                   },
                 ],
+              },
+              {
+                type: 'to', // 做的动画类型
+                role: '.ani1', // 谁
+                animateTo: {
+                  // ... 做哪些动画
+                  width: 200,
+                  // duration: 1,
+                },
               },
             ],
           },
