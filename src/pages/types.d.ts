@@ -4,6 +4,7 @@ export interface ConfigsTypes {
   stage: StageTypes; // 舞台
 }
 export interface StageTypes {
+  root?: React.RefObject<Element>; // 做舞台的根节点
   scenes: ScenesTypes[]; // 场景
 }
 export interface ScenesTypes {

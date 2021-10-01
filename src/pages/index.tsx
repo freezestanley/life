@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { configs } from './stages';
+import { GsapStage } from './utils';
 import './index.less';
 export default function App() {
   const boxRef = useRef<any>();
@@ -8,31 +10,34 @@ export default function App() {
   const tl2 = useRef<any>();
   const tweenRef = useRef<any>();
   useLayoutEffect(() => {
-    tl.current = gsap
-      .timeline()
-      .to(q('.ani1'), {
-        rotate: 360,
-        duration: 5,
-      })
-      .to(q('.ani2'), {
-        x: 100,
-        duration: 5,
-      })
-      .delay(2);
-    tl2.current = gsap
-      .timeline()
-      .to(q('.ani3'), {
-        rotate: 180,
-        duration: 3,
-      })
-      .to(q('.ani4'), {
-        y: 100,
-        duration: 5,
-      });
-    // tl.current.de
-    return () => {
-      tl.current.kill();
-    };
+    configs.stage.root = boxRef;
+    const gsapStage = new GsapStage(configs);
+    gsapStage.configController();
+    // tl.current = gsap
+    //   .timeline()
+    //   .to(q('.ani1'), {
+    //     rotate: 360,
+    //     duration: 5,
+    //   })
+    //   .to(q('.ani2'), {
+    //     x: 100,
+    //     duration: 5,
+    //   })
+    //   .delay(2);
+    // tl2.current = gsap
+    //   .timeline()
+    //   .to(q('.ani3'), {
+    //     rotate: 180,
+    //     duration: 3,
+    //   })
+    //   .to(q('.ani4'), {
+    //     y: 100,
+    //     duration: 5,
+    //   });
+    // // tl.current.de
+    // return () => {
+    //   tl.current.kill();
+    // };
   }, []);
   const onTweenClick = () => {
     // tweenRef.current.seek(2);

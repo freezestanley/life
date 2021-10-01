@@ -13,21 +13,25 @@ export const configs: Types.ConfigsTypes = {
           // 时间线
           {
             type: 'to', // 做的动画类型
-            role: '.box', // 谁
+            role: '.ani1', // 谁
             animateTo: {
               // ... 做哪些动画
+              rotate: 360,
+              duration: 5,
             },
-            animateFrom: {
-              // 可选, 针对 fromTo的动画形式
-              // ... 做哪些动画
-            },
+            // animateFrom: {
+            //   // 可选, 针对 fromTo的动画形式
+            //   // ... 做哪些动画
+            // },
           },
           // 第二条时间线
           {
             type: 'to', // 做的动画
-            role: '.box', // 谁
+            role: '.ani2', // 谁
             animateTo: {
               // ... 做哪些动画
+              x: 100,
+              duration: 5,
             },
             methods: [
               {
