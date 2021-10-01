@@ -12,33 +12,63 @@ export const configs: Types.ConfigsTypes = {
         timelines: [
           // 时间线
           {
-            type: 'to', // 做的动画类型
-            role: '.ani1', // 谁
-            animateTo: {
-              // ... 做哪些动画
-              rotate: '+=3600',
-              duration: 5,
-            },
-            // animateFrom: {
-            //   // 可选, 针对 fromTo的动画形式
-            //   // ... 做哪些动画
-            // },
+            timeline: [
+              {
+                type: 'to', // 做的动画类型
+                role: '.ani1', // 谁
+                animateTo: {
+                  // ... 做哪些动画
+                  rotate: '+=3600',
+                  duration: 5,
+                },
+              },
+              {
+                type: 'to', // 做的动画
+                role: '.ani2', // 谁
+                animateTo: {
+                  // ... 做哪些动画
+                  x: 100,
+                  y: 200,
+                  duration: 5,
+                },
+                methods: [
+                  {
+                    // (保留字段) 执行完后做什么
+                    name: 'delay',
+                    params: 2, // any 函数参数
+                  },
+                ],
+              },
+            ],
           },
           // 第二条时间线
           {
-            type: 'to', // 做的动画
-            role: '.ani2', // 谁
-            animateTo: {
-              // ... 做哪些动画
-              x: 100,
-              y: 200,
-              duration: 5,
-            },
-            methods: [
+            timeline: [
               {
-                // (保留字段) 执行完后做什么
-                name: 'delay',
-                params: 2, // any 函数参数
+                type: 'to', // 做的动画类型
+                role: '.ani3', // 谁
+                animateTo: {
+                  // ... 做哪些动画
+                  rotate: '-=3600',
+                  duration: 3,
+                },
+              },
+              {
+                type: 'to', // 做的动画
+                role: '.ani4', // 谁
+                animateTo: {
+                  // ... 做哪些动画
+                  x: '+=100',
+                  y: '-=200',
+                  duration: 5,
+                },
+                methods: [
+                  {
+                    // (保留字段) 执行完后做什么
+                    name: 'delay',
+                    params: 2, // any 函数参数
+                  },
+                ],
               },
             ],
           },

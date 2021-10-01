@@ -12,7 +12,9 @@ export default function App() {
   useLayoutEffect(() => {
     configs.stage.root = boxRef;
     const gsapStage = new GsapStage(configs);
-    gsapStage.configController();
+    console.log(gsapStage);
+
+    // gsapStage.configController();
     // tl.current = gsap
     //   .timeline()
     //   .to(q('.ani1'), {
@@ -51,8 +53,8 @@ export default function App() {
       <div className="box" ref={boxRef}>
         <span className="ani1">Hello1</span>
         <span className="ani2">Hello2</span>
-        <p className="ani3"></p>
-        <p className="ani4"></p>
+        <span className="ani3">Hello3</span>
+        <span className="ani4">Hello4</span>
       </div>
     </div>
   );

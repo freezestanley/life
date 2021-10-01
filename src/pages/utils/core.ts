@@ -9,6 +9,7 @@ export default class GsapStage {
     this.root = params.stage.root;
     this.selector = gsap.utils.selector(this.root);
     this.configs = params;
+    this.configController();
   }
   configController = () => {
     const { stage } = this.configs;
@@ -27,7 +28,13 @@ export default class GsapStage {
   };
   gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
     timelines.forEach(tl => {
-      gsap.timeline().to(this.selector(tl.role), tl.animateTo);
+      this.gsapTimelineController(tl.timeline);
+    });
+  };
+  gsapTimelineController = (timeline: Types.TimelineTypes[]) => {
+    let gsapTimeline = gsap.timeline();
+    timeline.forEach(tl => {
+      gsapTimeline = gsapTimeline.to(this.selector(tl.role), tl.animateTo);
     });
   };
 }

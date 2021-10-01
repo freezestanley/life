@@ -13,6 +13,14 @@ export interface ScenesTypes {
   timelines: TimelinesTypes[]; // 多时间线配置
 }
 export interface TimelinesTypes {
+  timeline: TimelineTypes[];
+  // type: 'to' | 'from' | 'fromTo'; // 做的动画类型
+  // role: string; // 谁做动画 .className
+  // animateTo: GSAPTweenVars;
+  // animateFrom?: GSAPTweenVars; // 可选, 针对 fromTo的动画形式
+  // methods?: TimelinesMethodsTypes[];
+}
+export interface TimelineTypes {
   type: 'to' | 'from' | 'fromTo'; // 做的动画类型
   role: string; // 谁做动画 .className
   animateTo: GSAPTweenVars;
