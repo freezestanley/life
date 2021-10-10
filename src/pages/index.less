@@ -11,18 +11,25 @@ body {
   margin: 0;
 }
 
-.stage > span {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--green);
-  font-weight: 600;
-  color: var(--light);
+.stage > {
+  width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #f2f2f2;
+  & > span {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--green);
+    font-weight: 600;
+    color: var(--light);
+  }
 }
 
 .app {

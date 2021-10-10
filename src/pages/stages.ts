@@ -2,6 +2,7 @@ import * as Types from './types';
 // 所有的元素都只会是父元素的子层级
 export const configs: Types.ConfigsTypes = {
   version: '0.0.1',
+  audioUrl: '',
   stage: {
     // 舞台
     scenes: [

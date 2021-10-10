@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import classnames from 'classnames';
 import { configs } from './stages';
 import { GsapStage } from './utils';
 import './index.less';
@@ -12,7 +13,7 @@ export default function App() {
   useLayoutEffect(() => {
     configs.stage.root = boxRef;
     const gsapStage = new GsapStage(configs);
-    console.log(gsapStage);
+    // console.log(gsapStage);
     gsap;
     // gsapStage.configController();
     // tl.current = gsap
@@ -50,7 +51,7 @@ export default function App() {
   };
   return (
     <div className="app">
-      <div className="stage" ref={boxRef}>
+      <div className={classnames('stage')} ref={boxRef}>
         <span className="ani1">Hello1</span>
         <span className="ani2">Hello2</span>
         <span className="ani3">Hello3</span>
