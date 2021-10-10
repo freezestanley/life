@@ -1,3 +1,5 @@
+import { ElementType } from 'react';
+
 // import {GSAPTweenVars} from 'gsap';
 export interface ConfigsTypes {
   version: string; // 配置的版本
@@ -12,11 +14,7 @@ export interface ScenesTypes {
   lib: 'gsap' | string; // 所使用的动画库, (保留字段)
   type: 'timelines' | string; // 以时间线形式按顺序执行
   timelines: TimelinesTypes[]; // 多时间线配置
-  elm?: {
-    // dom相关属性
-    role: string; // 类名, 要与timeline中的role对应
-    style: CSSStyleSheet; // 除组件样式外的额外定制
-  };
+  elms?: SceneElmsTypes[]; // dom相关属性
 }
 export interface TimelinesTypes {
   timeline: TimelineTypes[];
@@ -33,4 +31,16 @@ export interface TimelinesMethodsTypes {
   // (保留字段) 执行完后做什么
   name: 'delay';
   params: any; // any 函数参数
+}
+export interface SceneElmsTypes {
+  role: string; // 类名, 要与timeline中的role对应
+  component: string; // 组件key
+  props?: React.AllHTMLAttributes<any>;
+  // props?: {
+  //   // 元素的原生属性
+  //   style?: React.CSSProperties; // 除组件样式外的额外定制
+  // };
+  'x-props'?: {
+    // 元素的额外属性
+  };
 }
