@@ -3,9 +3,7 @@
  */
 import * as Types from '../types';
 import React, { createElement } from 'react';
-import ReactDOM from 'react-dom';
-import * as CoreTypes from './core.d';
-import * as jxComponents from '@/components';
+import * as jxComponents from '@/components/xj';
 /**
  * 解析出原配置结构所有的dom配置
  */

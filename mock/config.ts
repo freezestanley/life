@@ -24,7 +24,7 @@ export default {
                 timeline: [
                   {
                     type: 'to', // 做的动画类型
-                    role: '.jxImage-0', // 谁
+                    role: '.xjImage-0', // 谁
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
@@ -37,7 +37,7 @@ export default {
                   },
                   {
                     type: 'from', // 做的动画
-                    role: '.jxImage-0', // 谁
+                    role: '.xjImage-0', // 谁
                     animateTo: {
                       width: '+=200',
                       duration: 4,
@@ -56,7 +56,7 @@ export default {
                 timeline: [
                   {
                     type: 'to', // 做的动画类型
-                    role: '.jxImage-0-0', // 谁
+                    role: '.xjImage-0-0', // 谁
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
@@ -72,8 +72,8 @@ export default {
             ],
             elms: [
               {
-                role: 'jxImage-0',
-                component: 'jxImage',
+                role: 'xjImage-0',
+                component: 'xjImage',
                 props: {
                   src:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
@@ -84,8 +84,8 @@ export default {
                 },
               },
               {
-                role: 'jxImage-0-0',
-                component: 'jxImage',
+                role: 'xjImage-0-0',
+                component: 'xjImage',
                 props: {
                   src:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
@@ -106,7 +106,7 @@ export default {
                 timeline: [
                   {
                     type: 'to', // 做的动画类型
-                    role: '.jxImage-1', // 谁
+                    role: '.xjImage-1', // 谁
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
@@ -122,8 +122,8 @@ export default {
             ],
             elms: [
               {
-                role: 'jxImage-1',
-                component: 'jxImage',
+                role: 'xjImage-1',
+                component: 'xjImage',
                 props: {
                   src:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
@@ -140,7 +140,7 @@ export default {
                 timeline: [
                   {
                     type: 'to', // 做的动画类型
-                    role: '.jxImage-3', // 谁
+                    role: '.xjImage-3', // 谁
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
@@ -156,8 +156,8 @@ export default {
             ],
             elms: [
               {
-                role: 'jxImage-3',
-                component: 'jxImage',
+                role: 'xjImage-3',
+                component: 'xjImage',
                 props: {
                   src:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
