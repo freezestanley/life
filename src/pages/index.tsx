@@ -8,7 +8,7 @@ import React, {
 import { gsap } from 'gsap';
 import classnames from 'classnames';
 import { parseElms, loadElms } from './utils/dom';
-import { configs } from './stages';
+// import { configs } from './stages';
 import Stage from '@/pages/components/stage/stage';
 import API from '@/api';
 import { ConfigsTypes } from './types';
@@ -16,7 +16,7 @@ import './index.less';
 export default function App() {
   const boxRef = useRef<any>();
   const tweenRef = useRef<any>();
-  const [originConfig, setOriginConfig] = useState<ConfigsTypes>(configs);
+  const [originConfig, setOriginConfig] = useState<ConfigsTypes>();
   const onTweenClick = () => {
     // tweenRef.current.seek(2);
     // tweenRef.current.pause();
@@ -28,18 +28,22 @@ export default function App() {
     fetchConfig();
   }, []);
   const fetchConfig = async () => {
-    const res = await API.Config.detail();
-    console.log({ res });
+    const res: ResType<ConfigsTypes> = await API.Config.detail();
+    if (res.success) {
+      setOriginConfig(res.value);
+    }
   };
   return (
     <div className="app">
-      <div className={classnames('stage')} ref={boxRef}>
-        <Stage configs={originConfig} root={boxRef} />
-        {/* <Stage root={boxRef}>{nodes}</Stage> */}
-      </div>
+      {originConfig && (
+        <div className={classnames('stage')} ref={boxRef}>
+          <Stage configs={originConfig} root={boxRef} />
+        </div>
+      )}
     </div>
   );
 }
+// {/* <Stage root={boxRef}>{nodes}</Stage> */}
 
 /**
 根据操控面板的大小来缩放预览区域
