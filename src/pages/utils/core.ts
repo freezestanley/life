@@ -20,24 +20,50 @@ export default class GsapStage {
    * 场景控制
    * @param scenes
    */
-  scenesController = (scenes: Types.ScenesTypes[]) => {
+  scenesController = async (scenes: Types.ScenesTypes[]) => {
     if (!Array.isArray(scenes)) return;
-    scenes.forEach(scene => {
+    const gsTimeout = this.gsapScenesWindow(scenes);
+    let done = false;
+    const gsDone = () => {
+      return new Promise<boolean>(resolve => {
+        const r = gsTimeout.next();
+        setTimeout(() => {
+          resolve(r.done);
+        }, Number(r.value) * 1000);
+      });
+    };
+    while (!done) {
+      done = await gsDone();
+    }
+    console.log('done');
+  };
+  /**
+   * 场景窗口滑动
+   * 场景要一幕一幕的执行，执行完上一场才能继续执行下一场
+   * @param timelines
+   */
+  *gsapScenesWindow(scenes: Types.ScenesTypes[]) {
+    const that = this;
+    for (let idx = 0; idx < scenes.length; idx++) {
+      const scene = scenes[idx];
       const { lib, type } = scene;
       const animateMap: AnimateMapTypes = {
-        gsaptimelines: () => this.gsapTimelinesController(scene.timelines),
+        gsaptimelines: () => that.gsapTimelinesController(scene.timelines),
       };
-      animateMap[`${lib}${type}`] && animateMap[`${lib}${type}`]();
-    });
-  };
+      yield animateMap[`${lib}${type}`] && animateMap[`${lib}${type}`]();
+    }
+  }
   /**
    * 多时间线控制
    * @param timelines
    */
   gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
+    let totalDuration = 0;
     timelines.forEach(tl => {
-      this.gsapTimelineController(tl.timeline);
+      totalDuration += this.gsapTimelineController(tl.timeline);
     });
+    return totalDuration;
+    // console.log('gsapTimelinesController', totalDuration);
   };
   /**
    * 单时间线控制
@@ -45,11 +71,14 @@ export default class GsapStage {
    */
   gsapTimelineController = (timeline: Types.TimelineTypes[]) => {
     let gsapTimeline = gsap.timeline();
+    let totalDuration = 0;
     timeline.forEach(tl => {
       gsapTimeline = gsapTimeline[tl.type](
         this.selector(tl.role),
         tl.animateTo,
       );
+      totalDuration += gsapTimeline.totalDuration();
     });
+    return totalDuration;
   };
 }
