@@ -9,6 +9,8 @@ export interface ConfigsTypes {
 export interface StageTypes {
   root?: React.RefObject<Element>; // 做舞台的根节点
   scenes: ScenesTypes[]; // 场景
+  autoPlay: boolean; // 一般是true
+  speed: number; // 切换时间, 默认1.5s
 }
 export interface ScenesTypes {
   lib: 'gsap' | string; // 所使用的动画库, (保留字段)

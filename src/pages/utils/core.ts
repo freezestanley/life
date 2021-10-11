@@ -14,22 +14,26 @@ export default class GsapStage {
   configController = () => {
     const { stage } = this.configs;
     // const q = gsap.utils.selector(params.stage.root?.current);
-    this.scenesController(stage.scenes);
+    this.scenesController(stage);
   };
   /**
-   * 场景控制
+   * 场景控制, 之后要对接别的方法，都要返回上个场景的完成时间
    * @param scenes
    */
-  scenesController = async (scenes: Types.ScenesTypes[]) => {
+  scenesController = async (stage: Types.StageTypes) => {
+    const { scenes, speed, autoPlay } = stage;
     if (!Array.isArray(scenes)) return;
     const gsTimeout = this.gsapScenesWindow(scenes);
     let done = false;
     const gsDone = () => {
       return new Promise<boolean>(resolve => {
         const r = gsTimeout.next();
+        // @ts-ignore
+        const time = Number(r.value?.totalDuration || 0) + speed;
         setTimeout(() => {
           resolve(r.done);
-        }, Number(r.value) * 1000);
+          console.log('时间', time);
+        }, time * 1000);
       });
     };
     while (!done) {
@@ -54,16 +58,19 @@ export default class GsapStage {
     }
   }
   /**
-   * 多时间线控制
+   * 多时间线控制, 取耗时最久的一条返回时间
    * @param timelines
    */
   gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
     let totalDuration = 0;
     timelines.forEach(tl => {
-      totalDuration += this.gsapTimelineController(tl.timeline);
+      let currTotalDuration = this.gsapTimelineController(tl.timeline);
+      totalDuration =
+        currTotalDuration > totalDuration ? currTotalDuration : totalDuration;
     });
-    return totalDuration;
-    // console.log('gsapTimelinesController', totalDuration);
+    return {
+      totalDuration,
+    };
   };
   /**
    * 单时间线控制
@@ -77,7 +84,9 @@ export default class GsapStage {
         this.selector(tl.role),
         tl.animateTo,
       );
-      totalDuration += gsapTimeline.totalDuration();
+      const currDuration = gsapTimeline.totalDuration();
+      totalDuration =
+        currDuration > totalDuration ? currDuration : totalDuration;
     });
     return totalDuration;
   };

@@ -10,6 +10,8 @@ export default {
       version: '0.0.1',
       audioUrl: '',
       stage: {
+        autoPlay: true,
+        speed: 1.5,
         // 舞台
         scenes: [
           // 场景
@@ -29,7 +31,7 @@ export default {
                       x: '+=50',
                       y: '+=100',
                       scale: 1.5,
-                      duration: 1,
+                      duration: 2,
                       opacity: 1,
                     },
                   },
@@ -38,7 +40,7 @@ export default {
                     role: '.jxImage-0', // 谁
                     animateTo: {
                       width: '+=200',
-                      duration: 2,
+                      duration: 4,
                     },
                     methods: [
                       {
@@ -50,10 +52,39 @@ export default {
                   },
                 ],
               },
+              {
+                timeline: [
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.jxImage-0-0', // 谁
+                    animateTo: {
+                      // ... 做哪些动画
+                      // rotate: '+=3600',
+                      x: '+=50',
+                      y: '+=100',
+                      scale: 1.5,
+                      duration: 2,
+                      opacity: 1,
+                    },
+                  },
+                ],
+              },
             ],
             elms: [
               {
                 role: 'jxImage-0',
+                component: 'jxImage',
+                props: {
+                  src:
+                    'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
+                  style: {
+                    top: 100,
+                    left: 400,
+                  },
+                },
+              },
+              {
+                role: 'jxImage-0-0',
                 component: 'jxImage',
                 props: {
                   src:
