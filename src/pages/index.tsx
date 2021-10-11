@@ -10,6 +10,7 @@ import classnames from 'classnames';
 import { parseElms, loadElms } from './utils/dom';
 import { configs } from './stages';
 import Stage from '@/pages/components/stage/stage';
+import API from '@/api';
 import { ConfigsTypes } from './types';
 import './index.less';
 export default function App() {
@@ -22,6 +23,13 @@ export default function App() {
     // tweenRef.current.resume();
     tweenRef.current.progress(0.5);
     // tweenRef.current.restart();
+  };
+  useEffect(() => {
+    fetchConfig();
+  }, []);
+  const fetchConfig = async () => {
+    const res = await API.Config.detail();
+    console.log({ res });
   };
   return (
     <div className="app">
