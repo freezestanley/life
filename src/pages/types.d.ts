@@ -1,6 +1,3 @@
-import { ElementType } from 'react';
-
-// import {GSAPTweenVars} from 'gsap';
 export interface ConfigsTypes {
   version: string; // 配置的版本
   audioUrl: string; // bgm url

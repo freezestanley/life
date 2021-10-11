@@ -29,25 +29,34 @@ export default class GsapStage {
     const gsDone = () => {
       return new Promise<boolean>(resolve => {
         const r = gsTimeout.next();
-        // @ts-ignore
-        const time = Number(r.value?.totalDuration || 0) + speed;
+        if (r.done) {
+          return resolve(r.done);
+        }
+        const timeout = Number(r.value?.totalDuration || 0) + speed;
         setTimeout(() => {
+          console.log(r.value);
+          const roles = Array.from(r.value.roles) as string[];
+          roles.forEach((role: string) => {
+            gsap.to(this.selector(role), {
+              opacity: 0,
+              duration: 0.1,
+            });
+          });
           resolve(r.done);
-          console.log('时间', time);
-        }, time * 1000);
+        }, timeout * 1000);
       });
     };
     while (!done) {
       done = await gsDone();
     }
-    console.log('done');
+    console.log('done', done);
   };
   /**
    * 场景窗口滑动
    * 场景要一幕一幕的执行，执行完上一场才能继续执行下一场
    * @param timelines
    */
-  *gsapScenesWindow(scenes: Types.ScenesTypes[]) {
+  *gsapScenesWindow(scenes: Types.ScenesTypes[]): Generator<any, any> {
     const that = this;
     for (let idx = 0; idx < scenes.length; idx++) {
       const scene = scenes[idx];
@@ -64,13 +73,24 @@ export default class GsapStage {
    */
   gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
     let totalDuration = 0;
+    const tls: any = [];
+    let roles: Set<string> = new Set();
     timelines.forEach(tl => {
-      let currTotalDuration = this.gsapTimelineController(tl.timeline);
+      let {
+        totalDuration: currTotalDuration,
+        tl: simpleTl,
+      } = this.gsapTimelineController(tl.timeline);
       totalDuration =
         currTotalDuration > totalDuration ? currTotalDuration : totalDuration;
+      tls.push(simpleTl);
+      tl.timeline.forEach(tml => {
+        roles.add(tml.role);
+      });
     });
     return {
       totalDuration,
+      tls,
+      roles,
     };
   };
   /**
@@ -89,6 +109,6 @@ export default class GsapStage {
       totalDuration =
         currDuration > totalDuration ? currDuration : totalDuration;
     });
-    return totalDuration;
+    return { totalDuration, tl: gsapTimeline };
   };
 }
