@@ -26,7 +26,7 @@ export default {
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
-                      x: '+=300',
+                      x: '+=50',
                       y: '+=100',
                       scale: 1.5,
                       duration: 1,
@@ -37,9 +37,7 @@ export default {
                     type: 'from', // 做的动画
                     role: '.jxImage-0', // 谁
                     animateTo: {
-                      // ... 做哪些动画
-                      x: 100,
-                      y: 200,
+                      width: '+=200',
                       duration: 2,
                     },
                     methods: [
@@ -60,6 +58,10 @@ export default {
                 props: {
                   src:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201901%2F5c3c44e0622768ac2700a576_1024.jpg&refer=http%3A%2F%2Fzkres1.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636500825&t=e8420b9e907c97ebbf5fdc56261574f4',
+                  style: {
+                    top: 100,
+                    left: 400,
+                  },
                 },
               },
             ],
@@ -111,8 +113,8 @@ export default {
                     animateTo: {
                       // ... 做哪些动画
                       // rotate: '+=3600',
-                      x: '+=600',
-                      y: '+=150',
+                      x: '+=400',
+                      y: '+=250',
                       scale: 1.5,
                       duration: 1,
                       opacity: 1,
