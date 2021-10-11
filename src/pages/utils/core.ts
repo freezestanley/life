@@ -22,6 +22,7 @@ export default class GsapStage {
    */
   scenesController = async (stage: Types.StageTypes) => {
     const { scenes, speed, autoPlay } = stage;
+    //TODO autoPlay 暂未实现
     if (!Array.isArray(scenes)) return;
     const gsTimeout = this.gsapScenesWindow(scenes);
     let done = false;
