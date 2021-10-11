@@ -6,5 +6,6 @@ export default defineConfig({
   },
   routes: [
     { path: '/', component: '@/pages/index' },
+    { path: '/configboard', component: '@/pages/configBoard/configBoard' },
   ],
 });

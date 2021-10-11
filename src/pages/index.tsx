@@ -43,12 +43,7 @@ export default function App() {
     </div>
   );
 }
-// {/* <Stage root={boxRef}>{nodes}</Stage> */}
 
 /**
 根据操控面板的大小来缩放预览区域
-        <span className="ani1">Hello1</span>
-        <span className="ani2">Hello2</span>
-        <span className="ani3">Hello3</span>
-        <span className="ani4">Hello4</span>
  */
