@@ -15,7 +15,7 @@ const Stage: FC<PropTypes> = function({ configs, root }) {
     if (!configs) return [];
     // configs 异步时要动态监听
     return loadElms(parseElms(configs));
-  }, []);
+  }, [configs]);
   useEffect(() => {
     configs.stage.root = root;
     console.log('Stage', {
