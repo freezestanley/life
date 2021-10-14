@@ -26,6 +26,7 @@ export default class GsapStage {
     if (!Array.isArray(scenes)) return;
     const gsTimeout = this.gsapScenesWindow(scenes);
     let done = false;
+    // debugger;
     const gsDone = () => {
       return new Promise<boolean>(resolve => {
         const r = gsTimeout.next();
@@ -34,13 +35,14 @@ export default class GsapStage {
         }
         const timeout = Number(r.value?.totalDuration || 0) + speed;
         setTimeout(() => {
-          console.log(r.value);
           const roles = Array.from(r.value.roles) as string[];
           roles.forEach((role: string) => {
-            gsap.to(this.selector(role), {
-              opacity: 0,
-              duration: 0.1,
-            });
+            if (scenes.length - 1 !== r.value.idx) {
+              gsap.to(this.selector(role), {
+                opacity: 0,
+                duration: 0.1,
+              });
+            }
           });
           resolve(r.done);
         }, timeout * 1000);
@@ -49,7 +51,7 @@ export default class GsapStage {
     while (!done) {
       done = await gsDone();
     }
-    console.log('done', done);
+    console.log('isDone', done);
   };
   /**
    * 场景窗口滑动
@@ -62,7 +64,7 @@ export default class GsapStage {
       const scene = scenes[idx];
       const { lib, type } = scene;
       const animateMap: AnimateMapTypes = {
-        gsaptimelines: () => that.gsapTimelinesController(scene.timelines),
+        gsaptimelines: () => that.gsapTimelinesController(scene.timelines, idx),
       };
       yield animateMap[`${lib}${type}`] && animateMap[`${lib}${type}`]();
     }
@@ -71,7 +73,10 @@ export default class GsapStage {
    * 多时间线控制, 取耗时最久的一条返回时间
    * @param timelines
    */
-  gsapTimelinesController = (timelines: Types.TimelinesTypes[]) => {
+  gsapTimelinesController = (
+    timelines: Types.TimelinesTypes[],
+    idx: number,
+  ) => {
     let totalDuration = 0;
     const tls: any = [];
     let roles: Set<string> = new Set();
@@ -91,6 +96,7 @@ export default class GsapStage {
       totalDuration,
       tls,
       roles,
+      idx,
     };
   };
   /**
