@@ -37,9 +37,20 @@ export default function App() {
     <div className="app">
       {originConfig && (
         <div className={classnames('stage')} ref={boxRef}>
+          <div className={classnames('mask')} />
           <Stage configs={originConfig} root={boxRef} />
         </div>
       )}
+
+      <audio
+        id="music1"
+        controls="controls"
+        autoplay="autoplay"
+        preload="preload"
+        hidden
+      >
+        <source src="./wo.mp3" />
+      </audio>
     </div>
   );
 }

@@ -20,23 +20,7 @@ export default {
             type: 'timelines', // 以时间线形式按顺序执行
             timelines: [
               // 时间线sss
-              {
-                timeline: [
-                  {
-                    type: 'to', // 做的动画类型
-                    role: '.xjImage-0', // 谁
-                    animateTo: {
-                      // ... 做哪些动画
-                      // rotate: '+=3600',
-                      // x: '+=50',
-                      top: 200,
-                      // scale: 1.5,
-                      duration: 6,
-                      opacity: 1,
-                    },
-                  },
-                ],
-              },
+
               {
                 timeline: [
                   {
@@ -46,9 +30,27 @@ export default {
                       // ... 做哪些动画
                       // rotate: '+=3600',
                       // left: '+=50',
-                      top: 130,
-                      scale: 1.5,
-                      duration: 2,
+                      height: '120px',
+                      width: '500px',
+                      top: 280,
+                      left: 30,
+                      duration: 10,
+                      opacity: 1,
+                    },
+                  },
+                ],
+              },
+              {
+                timeline: [
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-0', // 谁
+                    animateTo: {
+                      // ... 做哪些动画
+                      // rotate: '+=3600',
+                      // x: '+=50',
+                      // scale: 1.5,
+                      duration: 10,
                       opacity: 1,
                     },
                   },
@@ -60,13 +62,11 @@ export default {
                 role: 'xjImage-0',
                 component: 'xjImage',
                 props: {
-                  src:
-                    'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F06%2F20160106111220_YuS3C.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636787120&t=9890d3286516c9c0d7b8482def21d907',
+                  src: './c.jpg',
                   style: {
-                    top: -300,
-                    left: 300,
-                    width: 600,
-                    height: 'auto',
+                    width: '100%',
+                    height: '100%',
+                    opacity: 0,
                   },
                 },
               },
@@ -74,17 +74,34 @@ export default {
                 role: 'xjText-0',
                 component: 'xjText',
                 props: {
-                  children: '张国荣',
+                  children: '"我就是我，是颜色不一样的烟火" ——张国荣',
                   style: {
-                    width: 420,
-                    top: 100,
-                    left: 400,
-                    fontSize: 40,
-                    fontWeight: 900,
+                    width: 500,
+                    top: 280,
+                    left: 30,
+                    fontSize: 30,
                     color: '#fff',
+                    overflow: 'hidden',
+                    lineClamp: 1,
+                    textAlign: 'right',
                   },
                 },
               },
+
+              // {
+              //   role: 'xjImage-1',
+              //   component: 'xjImage',
+              //   props: {
+              //     src:
+              //       'https://img95.699pic.com/photo/40141/8229.gif_wh860.gif',
+              //     style: {
+              //       width: '100%',
+              //       height: '100%',
+              //       opacity: .2,
+              //       zIndex: 99999
+              //     },
+              //   },
+              // },
             ],
           },
 
@@ -101,7 +118,7 @@ export default {
                     role: '.xjImage-1', // 谁
                     animateTo: {
                       scale: 1,
-                      duration: 3,
+                      duration: 10,
                       opacity: 1,
                     },
                   },
@@ -114,7 +131,7 @@ export default {
                     role: '.xjText-2', // 谁
                     animateTo: {
                       width: 600,
-                      duration: 2,
+                      duration: 15,
                       opacity: 1,
                     },
                   },
@@ -126,8 +143,7 @@ export default {
                 role: 'xjImage-1',
                 component: 'xjImage',
                 props: {
-                  src:
-                    'https://img1.baidu.com/it/u=2032406179,4269099464&fm=26&fmt=auto',
+                  src: './d.jpg',
                   style: {
                     top: 0,
                     left: 0,
@@ -146,12 +162,12 @@ export default {
                   style: {
                     bottom: 80,
                     left: 50,
-                    width: 0,
+                    width: 600,
                     height: 80,
                     fontSize: 22,
                     color: '#fff',
                     overflow: 'hidden',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
                   },
                 },
@@ -161,60 +177,6 @@ export default {
 
           {
             // 场景3
-            lib: 'gsap', // 所使用的动画库, (保留字段)
-            type: 'timelines', // 以时间线形式按顺序执行
-            timelines: [
-              // 时间线sss
-              {
-                timeline: [
-                  {
-                    type: 'to', // 做的动画类型
-                    role: '.xjImage-3', // 谁
-                    animateTo: {
-                      opacity: 1,
-                      duration: 0.5,
-                    },
-                  },
-                  {
-                    type: 'to', // 做的动画类型
-                    role: '.xjImage-3', // 谁
-                    animateTo: {
-                      top: '-=50',
-                      duration: 3,
-                    },
-                  },
-                  {
-                    type: 'to', // 做的动画类型
-                    role: '.xjImage-3-1', // 谁
-                    animateTo: {
-                      // top: '-=50',
-                      duration: 2,
-                      opacity: 1,
-                    },
-                  },
-                ],
-              },
-            ],
-            elms: [
-              {
-                role: 'xjImage-3',
-                component: 'xjImage',
-                props: {
-                  src:
-                    'https://img1.baidu.com/it/u=138702463,1291014238&fm=26&fmt=auto',
-                  style: {
-                    opacity: 0,
-                    width: 1330,
-                    height: 'auto',
-                    top: 0,
-                  },
-                },
-              },
-            ],
-          },
-
-          {
-            // 场景4
             lib: 'gsap', // 所使用的动画库, (保留字段)
             type: 'timelines', // 以时间线形式按顺序执行
             timelines: [
@@ -271,13 +233,58 @@ export default {
                   children:
                     '1977年出道。1983年以《风继续吹》获得关注。1984年演唱的《Monica》是香港歌坛第一支同获十大中文金曲、十大劲歌金曲的舞曲。',
                   style: {
-                    width: 400,
+                    width: 500,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
                     padding: '5px 10px',
-                    bottom: 30,
+                    top: 100,
                     right: 50,
+                  },
+                },
+              },
+            ],
+          },
+
+          {
+            // 场景4
+            lib: 'gsap', // 所使用的动画库, (保留字段)
+            type: 'timelines', // 以时间线形式按顺序执行
+            timelines: [
+              // 时间线sss
+              {
+                timeline: [
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-3', // 谁
+                    animateTo: {
+                      opacity: 1,
+                      duration: 3,
+                    },
+                  },
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-3', // 谁
+                    animateTo: {
+                      bottom: 0,
+                      duration: 2,
+                      scale: 1.5,
+                      opacity: 0,
+                    },
+                  },
+                ],
+              },
+            ],
+            elms: [
+              {
+                role: 'xjImage-3',
+                component: 'xjImage',
+                props: {
+                  src: './a.jpg',
+                  style: {
+                    opacity: 0,
+                    width: '100%',
+                    height: '100%',
+                    // height: 'auto',
                   },
                 },
               },
@@ -320,8 +327,8 @@ export default {
                     'https://img1.baidu.com/it/u=3641342260,1224636251&fm=26&fmt=auto',
                   style: {
                     opacity: 0,
-                    width: 1200,
-                    height: 'auto',
+                    width: '100%',
+                    height: '100%',
                     top: 0,
                     transform: 'scale(1.5)',
                   },
@@ -338,7 +345,7 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
                     top: 400,
                     right: 20,
@@ -348,6 +355,7 @@ export default {
               },
             ],
           },
+
           {
             // 场景6
             lib: 'gsap', // 所使用的动画库, (保留字段)
@@ -384,8 +392,8 @@ export default {
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.improve-yourmemory.com%2Fpic%2F41fde7afc3fd062456b584db58ca8590-2.jpg&refer=http%3A%2F%2Fimg.improve-yourmemory.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636788829&t=2bc0b367cdee3b04a74c282921d2c165',
                   style: {
                     opacity: 0,
-                    width: 1400,
-                    height: 'auto',
+                    width: '100%',
+                    height: '100%',
                     top: 0,
                     left: -100,
                   },
@@ -402,7 +410,7 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
                     top: 400,
                     right: 20,
@@ -412,6 +420,7 @@ export default {
               },
             ],
           },
+
           {
             // 场景7
             lib: 'gsap', // 所使用的动画库, (保留字段)
@@ -467,7 +476,7 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
                     top: 400,
                     right: 20,
@@ -477,6 +486,7 @@ export default {
               },
             ],
           },
+
           {
             // 场景8
             lib: 'gsap', // 所使用的动画库, (保留字段)
@@ -532,7 +542,7 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
                     bottom: -100,
                     right: 20,
@@ -542,6 +552,7 @@ export default {
               },
             ],
           },
+
           {
             // 场景9
             lib: 'gsap', // 所使用的动画库, (保留字段)
@@ -553,7 +564,7 @@ export default {
                     type: 'to', // 做的动画类型
                     role: '.xjImage-9', // 谁
                     animateTo: {
-                      duration: 2,
+                      duration: 8,
                       opacity: 1,
                       top: 300,
                     },
@@ -562,7 +573,7 @@ export default {
                     type: 'to', // 做的动画类型
                     role: '.xjImage-9', // 谁
                     animateTo: {
-                      duration: 1,
+                      duration: 5,
                       opacity: 1,
                       top: 0,
                       width: 600,
@@ -573,10 +584,10 @@ export default {
                     type: 'to', // 做的动画类型
                     role: '.xjText-9-1', // 谁
                     animateTo: {
-                      duration: 1,
+                      duration: 8,
                       opacity: 1,
                       left: 20,
-                      bottom: 100,
+                      bottom: 200,
                     },
                   },
                 ],
@@ -610,9 +621,9 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
-                    bottom: -100,
+                    bottom: -150,
                     left: 20,
                     textAlign: 'left',
                   },
@@ -620,6 +631,71 @@ export default {
               },
             ],
           },
+
+          {
+            // 场景8
+            lib: 'gsap', // 所使用的动画库, (保留字段)
+            type: 'timelines', // 以时间线形式按顺序执行
+            timelines: [
+              {
+                timeline: [
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-a', // 谁
+                    animateTo: {
+                      duration: 5,
+                      opacity: 1,
+                    },
+                  },
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjText-a-1', // 谁
+                    animateTo: {
+                      duration: 3,
+                      opacity: 1,
+                      bottom: 100,
+                    },
+                  },
+                ],
+              },
+            ],
+            elms: [
+              {
+                role: 'xjImage-a',
+                component: 'xjImage',
+                props: {
+                  src: './f.jpg',
+                  style: {
+                    opacity: 0,
+                    width: '60%',
+                    height: 'auto',
+                    top: 0,
+                    // transform: 'scale(1.5)',
+                  },
+                },
+              },
+              {
+                role: 'xjText-a-1',
+                component: 'xjText',
+                props: {
+                  children:
+                    '1995年，张国荣宣布复出歌坛并签约滚石唱片公司；复出后的他宣布不再领取任何竞争性质的奖项。 同年他推出了专辑《宠爱》，全亚洲年度销量突破200万张，香港本地销量达到六白金  ，位居IFPI香港分会公布的全年唱片销量榜榜首，被媒体称为“救市之作',
+                  style: {
+                    width: 400,
+                    fontWeight: 900,
+                    fontSize: 22,
+                    color: '#fff',
+                    // backgroundColor: '#5ecac0',
+                    padding: '5px 10px',
+                    bottom: -100,
+                    right: 20,
+                    textAlign: 'left',
+                  },
+                },
+              },
+            ],
+          },
+
           {
             // 场景10
             lib: 'gsap', // 所使用的动画库, (保留字段)
@@ -675,9 +751,9 @@ export default {
                     fontWeight: 900,
                     fontSize: 22,
                     color: '#fff',
-                    backgroundColor: '#5ecac0',
+                    // backgroundColor: '#5ecac0',
                     padding: '5px 10px',
-                    bottom: 100,
+                    bottom: 150,
                     right: -20,
                     textAlign: 'left',
                   },
@@ -685,8 +761,55 @@ export default {
               },
             ],
           },
+
           {
             // 场景11
+            lib: 'gsap', // 所使用的动画库, (保留字段)
+            type: 'timelines', // 以时间线形式按顺序执行
+            timelines: [
+              {
+                timeline: [
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-11', // 谁
+                    animateTo: {
+                      left: 0,
+                      duration: 5,
+                      opacity: 1,
+                    },
+                  },
+                  {
+                    type: 'to', // 做的动画类型
+                    role: '.xjImage-11', // 谁
+                    animateTo: {
+                      scale: 1.5,
+                      duration: 5,
+                      opacity: 0,
+                    },
+                  },
+                ],
+              },
+            ],
+            elms: [
+              {
+                role: 'xjImage-11',
+                component: 'xjImage',
+                props: {
+                  src: './h.jpg',
+                  style: {
+                    opacity: 0,
+                    width: '100%',
+                    height: '100%',
+                    top: 0,
+                    left: -100,
+                  },
+                },
+              },
+            ],
+          },
+
+          {
+            // 场景12
             lib: 'gsap', // 所使用的动画库, (保留字段)
             type: 'timelines', // 以时间线形式按顺序执行
             timelines: [

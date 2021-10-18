@@ -51,6 +51,8 @@
           left: 300,
           width: 600,
           height: 'auto',
+          -webkit-filter: blur(30px);
+          filter: blur(30px);
         },
       },
     },
