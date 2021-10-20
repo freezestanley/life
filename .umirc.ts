@@ -26,5 +26,11 @@ export default defineConfig({
     layout: 'side',
     // logo
   },
+  chainWebpack: config => {
+    config.module
+      .rule('mjs-rule')
+      .test(/.m?js/)
+      .resolve.set('fullySpecified', false);
+  },
   mfsu: {},
 });

@@ -13,7 +13,7 @@ export interface ScenesTypes {
   lib: 'gsap' | string; // 所使用的动画库, (保留字段)
   type: 'timelines' | string; // 以时间线形式按顺序执行
   timelines: TimelinesTypes[]; // 多时间线配置
-  elms?: SceneElmsTypes[]; // dom相关属性
+  elms: SceneElmsTypes[]; // dom相关属性
 }
 export interface TimelinesTypes {
   timeline: TimelineTypes[];
