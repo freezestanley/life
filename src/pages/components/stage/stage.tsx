@@ -7,7 +7,7 @@ import { GsapStage } from '@/pages/utils';
 import { parseElms, loadElms } from '@/pages/utils/dom';
 import styles from './stage.less';
 interface PropTypes {
-  root: Types.StageTypes['root'];
+  root: Types.StageTypes['root']; // 要挂载的节点是哪个, 必须在父节点上挂载一个ref
   configs: Types.ConfigsTypes;
 }
 const Stage: FC<PropTypes> = function({ configs, root }) {

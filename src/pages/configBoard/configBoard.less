@@ -1,18 +1,53 @@
 .config_board {
   display: flex;
-  justify-content: flex-start;
+  position: relative;
   &-content {
     min-width: 1000px;
     width: calc(100vw - 400px);
     height: 100vh;
-    background-color: orange;
+    padding: 10px;
+    &-stage {
+      width: 1200px;
+      height: 800px;
+      background-color: #000;
+      margin: 0 auto;
+      // transform: scale(0.55) translate(-45%, -45%);
+    }
+    // background-color: orange;
   }
   &-board {
-    width: calc(100vw - 1000px);
-    min-width: 400px;
-    max-width: 400px;
+    width: 320px;
+    height: 100vh;
     margin-left: 10px;
     background-color: blue;
     padding: 5px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
   }
 }
+@media screen and (max-width: 1800px) {
+  .config_board-content-stage {
+    transform: scale(0.9) translate(-6%, -6%);
+  }
+}
+@media screen and (max-width: 1700px) {
+  .config_board-content-stage {
+    transform: scale(0.75) translate(-16%, -16%);
+  }
+}
+@media screen and (max-width: 1600px) {
+  .config_board-content-stage {
+    transform: scale(0.65) translate(-20%, -20%);
+  }
+}
+@media screen and (max-width: 1450px) {
+  .config_board-content-stage {
+    transform: scale(0.55) translate(-35%, -35%);
+  }
+}
+// @media screen and (max-width: 1300px) {
+//   .config_board-content-stage {
+//     transform: scale(0.55) translate(-35%, -35%);
+//   }
+// }
