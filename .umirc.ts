@@ -14,7 +14,8 @@ export default defineConfig({
     {
       path: '/configboard',
       component: '@/pages/configBoard/configBoard',
-      name: '配置面板',
+      name: '配置模板',
+      hideInMenu: true,
     },
   ],
   layout: {
