@@ -5,7 +5,12 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/index', name: '预览' },
+    { path: '/', component: '@/pages/index', name: '首页' },
+    {
+      path: '/templates',
+      component: '@/pages/templates/templates',
+      name: '模板管理',
+    },
     {
       path: '/configboard',
       component: '@/pages/configBoard/configBoard',
